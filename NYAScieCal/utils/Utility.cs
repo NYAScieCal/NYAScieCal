@@ -18,7 +18,7 @@ namespace NYAScieCal.utils
             Bitmap new_image = new Bitmap(width, height);
             Graphics g = Graphics.FromImage((Image)new_image);
             g.InterpolationMode = InterpolationMode.High;
-            g.DrawImage(img, 0, 0, 15, 15);
+            g.DrawImage(img, 0, 0, width, height);
             return new_image;
 
         }
