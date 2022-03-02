@@ -49,7 +49,7 @@ namespace NYAScieCal
             this.sinBtn.Location = new System.Drawing.Point(0, -2);
             this.sinBtn.Margin = new System.Windows.Forms.Padding(0);
             this.sinBtn.Name = "sinBtn";
-            this.sinBtn.Size = new System.Drawing.Size(89, 38);
+            this.sinBtn.Size = new System.Drawing.Size(75, 47);
             this.sinBtn.TabIndex = 0;
             this.sinBtn.Text = "sin";
             this.sinBtn.UseVisualStyleBackColor = true;
@@ -60,10 +60,10 @@ namespace NYAScieCal
             this.cosBtn.FlatAppearance.BorderSize = 0;
             this.cosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cosBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cosBtn.Location = new System.Drawing.Point(84, -2);
+            this.cosBtn.Location = new System.Drawing.Point(75, -2);
             this.cosBtn.Margin = new System.Windows.Forms.Padding(0);
             this.cosBtn.Name = "cosBtn";
-            this.cosBtn.Size = new System.Drawing.Size(89, 38);
+            this.cosBtn.Size = new System.Drawing.Size(75, 47);
             this.cosBtn.TabIndex = 0;
             this.cosBtn.Text = "cos";
             this.cosBtn.UseVisualStyleBackColor = true;
@@ -74,10 +74,10 @@ namespace NYAScieCal
             this.tanBtn.FlatAppearance.BorderSize = 0;
             this.tanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tanBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.tanBtn.Location = new System.Drawing.Point(167, -2);
+            this.tanBtn.Location = new System.Drawing.Point(150, -2);
             this.tanBtn.Margin = new System.Windows.Forms.Padding(0);
             this.tanBtn.Name = "tanBtn";
-            this.tanBtn.Size = new System.Drawing.Size(89, 38);
+            this.tanBtn.Size = new System.Drawing.Size(75, 47);
             this.tanBtn.TabIndex = 0;
             this.tanBtn.Text = "tan";
             this.tanBtn.UseVisualStyleBackColor = true;
@@ -88,10 +88,10 @@ namespace NYAScieCal
             this.secBtn.FlatAppearance.BorderSize = 0;
             this.secBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.secBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.secBtn.Location = new System.Drawing.Point(244, -2);
+            this.secBtn.Location = new System.Drawing.Point(225, -3);
             this.secBtn.Margin = new System.Windows.Forms.Padding(0);
             this.secBtn.Name = "secBtn";
-            this.secBtn.Size = new System.Drawing.Size(89, 38);
+            this.secBtn.Size = new System.Drawing.Size(75, 47);
             this.secBtn.TabIndex = 0;
             this.secBtn.Text = "sec";
             this.secBtn.UseVisualStyleBackColor = true;
@@ -102,91 +102,85 @@ namespace NYAScieCal
             this.arcsinBtn.FlatAppearance.BorderSize = 0;
             this.arcsinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.arcsinBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.arcsinBtn.Location = new System.Drawing.Point(0, 36);
+            this.arcsinBtn.Location = new System.Drawing.Point(0, 44);
             this.arcsinBtn.Margin = new System.Windows.Forms.Padding(0);
             this.arcsinBtn.Name = "arcsinBtn";
-            this.arcsinBtn.Size = new System.Drawing.Size(89, 38);
+            this.arcsinBtn.Size = new System.Drawing.Size(75, 47);
             this.arcsinBtn.TabIndex = 0;
             this.arcsinBtn.Text = "arcsin";
             this.arcsinBtn.UseVisualStyleBackColor = true;
-            
             // 
             // arccosBtn
             // 
             this.arccosBtn.FlatAppearance.BorderSize = 0;
             this.arccosBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.arccosBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.arccosBtn.Location = new System.Drawing.Point(84, 36);
+            this.arccosBtn.Location = new System.Drawing.Point(75, 44);
             this.arccosBtn.Margin = new System.Windows.Forms.Padding(0);
             this.arccosBtn.Name = "arccosBtn";
-            this.arccosBtn.Size = new System.Drawing.Size(89, 38);
+            this.arccosBtn.Size = new System.Drawing.Size(75, 47);
             this.arccosBtn.TabIndex = 0;
             this.arccosBtn.Text = "arccos";
             this.arccosBtn.UseVisualStyleBackColor = true;
-            
             // 
             // cscBtn
             // 
             this.cscBtn.FlatAppearance.BorderSize = 0;
             this.cscBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cscBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cscBtn.Location = new System.Drawing.Point(328, -2);
+            this.cscBtn.Location = new System.Drawing.Point(300, -2);
             this.cscBtn.Margin = new System.Windows.Forms.Padding(0);
             this.cscBtn.Name = "cscBtn";
-            this.cscBtn.Size = new System.Drawing.Size(89, 38);
+            this.cscBtn.Size = new System.Drawing.Size(75, 47);
             this.cscBtn.TabIndex = 0;
             this.cscBtn.Text = "csc";
             this.cscBtn.UseVisualStyleBackColor = true;
-            
             // 
             // arctanBtn
             // 
             this.arctanBtn.FlatAppearance.BorderSize = 0;
             this.arctanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.arctanBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.arctanBtn.Location = new System.Drawing.Point(167, 36);
+            this.arctanBtn.Location = new System.Drawing.Point(150, 45);
             this.arctanBtn.Margin = new System.Windows.Forms.Padding(0);
             this.arctanBtn.Name = "arctanBtn";
-            this.arctanBtn.Size = new System.Drawing.Size(89, 38);
+            this.arctanBtn.Size = new System.Drawing.Size(75, 46);
             this.arctanBtn.TabIndex = 0;
             this.arctanBtn.Text = "arctan";
             this.arctanBtn.UseVisualStyleBackColor = true;
-            
             // 
             // arcsecBtn
             // 
             this.arcsecBtn.FlatAppearance.BorderSize = 0;
             this.arcsecBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.arcsecBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.arcsecBtn.Location = new System.Drawing.Point(244, 36);
+            this.arcsecBtn.Location = new System.Drawing.Point(225, 44);
             this.arcsecBtn.Margin = new System.Windows.Forms.Padding(0);
             this.arcsecBtn.Name = "arcsecBtn";
-            this.arcsecBtn.Size = new System.Drawing.Size(89, 38);
+            this.arcsecBtn.Size = new System.Drawing.Size(75, 47);
             this.arcsecBtn.TabIndex = 0;
             this.arcsecBtn.Text = "arcsec";
             this.arcsecBtn.UseVisualStyleBackColor = true;
-           
             // 
             // arccscBtn
             // 
             this.arccscBtn.FlatAppearance.BorderSize = 0;
             this.arccscBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.arccscBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.arccscBtn.Location = new System.Drawing.Point(328, 36);
+            this.arccscBtn.Location = new System.Drawing.Point(300, 44);
             this.arccscBtn.Margin = new System.Windows.Forms.Padding(0);
             this.arccscBtn.Name = "arccscBtn";
-            this.arccscBtn.Size = new System.Drawing.Size(89, 38);
+            this.arccscBtn.Size = new System.Drawing.Size(75, 47);
             this.arccscBtn.TabIndex = 0;
             this.arccscBtn.Text = "arccsc";
             this.arccscBtn.UseVisualStyleBackColor = true;
-
             // 
             // TrigoDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(415, 74);
+            this.ClientSize = new System.Drawing.Size(376, 91);
             this.Controls.Add(this.cscBtn);
             this.Controls.Add(this.arccscBtn);
             this.Controls.Add(this.arcsecBtn);
@@ -198,6 +192,7 @@ namespace NYAScieCal
             this.Controls.Add(this.cosBtn);
             this.Controls.Add(this.sinBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TrigoDialog";
             this.Text = "Form1";
             this.ResumeLayout(false);
