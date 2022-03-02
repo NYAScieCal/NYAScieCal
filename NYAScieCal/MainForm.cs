@@ -24,6 +24,8 @@ namespace NYAScieCal
             this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.Image= Program.util.resizeImage(Image.FromFile("C:\\Users\\Lazar-PC\\source\\repos\\NYAScieCal\\NYAScieCal\\images\\closeIcon.png"), 15, 15);
             this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;*/
+            
+           
         }
 
         private void trigoBtn_Click(object sender, EventArgs e)
@@ -65,6 +67,9 @@ namespace NYAScieCal
             
         }
 
-       
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
