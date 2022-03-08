@@ -67,9 +67,36 @@ namespace NYAScieCal
             
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "7";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "6";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "3";
+        }
+
+        private void button0_Click(object sender, EventArgs e)
         {
 
+            textBox.Text = "0";
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "8";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            textBox.Text = "9";
         }
     }
 }
