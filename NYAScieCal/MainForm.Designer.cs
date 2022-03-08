@@ -52,7 +52,7 @@ namespace NYAScieCal
             this.button15 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
             this.buttonDot = new System.Windows.Forms.Button();
-            this.textbox = new System.Windows.Forms.RichTextBox();
+            this.textBox = new System.Windows.Forms.RichTextBox();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -302,20 +302,20 @@ namespace NYAScieCal
             this.buttonDot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonDot.UseVisualStyleBackColor = true;
             // 
-            // textbox
+            // textBox
             // 
-            this.textbox.Location = new System.Drawing.Point(4, 29);
-            this.textbox.Name = "textbox";
-            this.textbox.Size = new System.Drawing.Size(518, 76);
-            this.textbox.TabIndex = 4;
-            this.textbox.Text = "";
+            this.textBox.Location = new System.Drawing.Point(4, 29);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(518, 76);
+            this.textBox.TabIndex = 4;
+            this.textBox.Text = "";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 505);
-            this.Controls.Add(this.textbox);
+            this.Controls.Add(this.textBox);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.radicalBtn);
             this.Controls.Add(this.exponentBtn);
@@ -367,7 +367,7 @@ namespace NYAScieCal
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button buttonDot;
-        private System.Windows.Forms.RichTextBox textbox;
+        private System.Windows.Forms.RichTextBox textBox;
     }
 }
 
