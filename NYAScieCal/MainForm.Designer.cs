@@ -34,7 +34,6 @@ namespace NYAScieCal
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.titleBar = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Label();
-            this.textBox = new System.Windows.Forms.TextBox();
             this.trigoBtn = new System.Windows.Forms.Button();
             this.modeBtn = new System.Windows.Forms.Button();
             this.piBtn = new System.Windows.Forms.Button();
@@ -53,6 +52,7 @@ namespace NYAScieCal
             this.button15 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
             this.buttonDot = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,16 +74,7 @@ namespace NYAScieCal
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(27, 25);
             this.closeBtn.TabIndex = 0;
-            // 
-            // textBox
-            // 
-            this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox.Location = new System.Drawing.Point(4, 33);
-            this.textBox.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox.Multiline = true;
-            this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(518, 70);
-            this.textBox.TabIndex = 1;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // trigoBtn
             // 
@@ -311,11 +302,20 @@ namespace NYAScieCal
             this.buttonDot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonDot.UseVisualStyleBackColor = true;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(4, 29);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(518, 76);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 505);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.radicalBtn);
             this.Controls.Add(this.exponentBtn);
@@ -334,7 +334,6 @@ namespace NYAScieCal
             this.Controls.Add(this.piBtn);
             this.Controls.Add(this.modeBtn);
             this.Controls.Add(this.trigoBtn);
-            this.Controls.Add(this.textBox);
             this.Controls.Add(this.titleBar);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -343,14 +342,12 @@ namespace NYAScieCal
             this.Text = "Form1";
             this.titleBar.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel titleBar;
-        private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Button trigoBtn;
         private System.Windows.Forms.Button modeBtn;
         private System.Windows.Forms.Button piBtn;
@@ -370,6 +367,7 @@ namespace NYAScieCal
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button buttonDot;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
