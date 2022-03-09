@@ -23,9 +23,10 @@ namespace NYAScieCal
             /*this.trigoBtn.Image = Program.util.resizeImage(Image.FromFile("C:\\Users\\Lazar-PC\\source\\repos\\NYAScieCal\\NYAScieCal\\images\\25243.png"),15,15);
             this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.Image= Program.util.resizeImage(Image.FromFile("C:\\Users\\Lazar-PC\\source\\repos\\NYAScieCal\\NYAScieCal\\images\\closeIcon.png"), 15, 15);
-            this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;*/
-            
-           
+            this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            Program.util.resizeImage((System.Drawing.Image)(resources.GetObject("button1.Image")), 80, 40);*/
+
+
         }
 
         private void trigoBtn_Click(object sender, EventArgs e)
@@ -84,7 +85,7 @@ namespace NYAScieCal
 
         private void button0_Click(object sender, EventArgs e)
         {
-            this.textBox.
+         
             textBox.Text += "0";
 
         }
@@ -106,6 +107,11 @@ namespace NYAScieCal
         }
 
         private void button10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
         {
 
         }
