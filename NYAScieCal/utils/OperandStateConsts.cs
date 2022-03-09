@@ -10,10 +10,7 @@ namespace NYAScieCal.utils
     {
 
         OFF,
-        START_OPERAND_SET,
-        START_OPERAND_NOT_SET,
-        END_OPERAND_SET,
-        END_OPERAND_NOT_SET
+        END_OPERAND_SET
 
 
     }
