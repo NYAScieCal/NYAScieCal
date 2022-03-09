@@ -9,8 +9,7 @@ namespace NYAScieCal.utils
     enum ButtonStateConsts
     {
         OFF,
-        MODULO_BUTTON_ON,
-        MODULO_BUTTON_OFF
+        MODULO_BUTTON_SET,
 
     }
 }
