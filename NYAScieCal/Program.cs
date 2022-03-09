@@ -16,6 +16,8 @@ namespace NYAScieCal
 
         public static Utility util = new Utility();
         public static Controller controller = new Controller();
+        public static OperandState operandState = new OperandState();
+        public static NYAScieCal.utils.ButtonState buttonState = new NYAScieCal.utils.ButtonState();
 
         [STAThread]
         static void Main()

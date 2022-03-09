@@ -123,7 +123,45 @@ namespace NYAScieCal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textBox.AppendText("1");
+
+            if (Program.operandState.getCurrentState() == utils.OperandStateConsts.OFF && 
+                Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
+            {
+                Program.operandState.setCurrentState(utils.OperandStateConsts.START_OPERAND_SET);
+                textBox.AppendText("1");
+            }
+            
+            else if (Program.operandState.getCurrentState() == utils.OperandStateConsts.END_OPERAND_SET &&
+                    Program.buttonState.getCurrentState() == utils.ButtonStateConsts.MODULO_BUTTON_ON)
+            {
+                string temp = textBox.Text;
+                textBox.Text = "1";
+                textBox.SelectionStart = textBox.Text.Length;
+                textBox.SelectionLength = 0;
+                textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox.AppendText("\n"+temp);
+                Program.operandState.setCurrentState(utils.OperandStateConsts.OFF);
+              
+            }
+            else if (Program.operandState.getCurrentState() != utils.OperandStateConsts.OFF)
+            {
+ 
+                textBox.AppendText("1");
+            }
+            else
+            {
+                string temp1 = textBox.Lines[0];
+                string temp2 = textBox.Lines[1];
+                temp1 = temp1 + "1";
+                textBox.Text = temp1;
+                textBox.SelectionStart = textBox.Text.Length;
+                textBox.SelectionLength = 0;
+                textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                textBox.AppendText("\n"+temp2);
+            }
+
+
+
         }
 
         private void buttonEq_Click(object sender, EventArgs e)
@@ -136,10 +174,14 @@ namespace NYAScieCal
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            textBox.SelectionStart = textBox.Text.Length;
-            textBox.SelectionLength = 0;
-            textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox.AppendText("\n"+"2");
+
+            if (Program.operandState.getCurrentState() == utils.OperandStateConsts.START_OPERAND_SET)
+            {
+                Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_ON);
+                Program.operandState.setCurrentState(utils.OperandStateConsts.END_OPERAND_SET);
+                textBox.AppendText(Environment.NewLine);
+            }
+           
         }
     }
 }
