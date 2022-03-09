@@ -70,35 +70,44 @@ namespace NYAScieCal
 
         private void button7_Click(object sender, EventArgs e)
         {
-            textBox.Text += "7";
+
+            Program.util.executeNumberDisplay("7", textBox);
+
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            textBox.Text += "6";
+
+            Program.util.executeNumberDisplay("6", textBox);
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox.Text += "3";
+
+            Program.util.executeNumberDisplay("3", textBox);
+
         }
 
         private void button0_Click(object sender, EventArgs e)
         {
-         
-            textBox.Text += "0";
+
+            Program.util.executeNumberDisplay("0", textBox);
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            textBox.Text += "8";
+
+            Program.util.executeNumberDisplay("8", textBox);
+
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
- 
-            textBox.Text += "9";
+
+            Program.util.executeNumberDisplay("9", textBox);
+
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -108,59 +117,30 @@ namespace NYAScieCal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox.AppendText("2");
+
+            Program.util.executeNumberDisplay("2", textBox);
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            textBox.Text += "4";
+
+            Program.util.executeNumberDisplay("4", textBox);
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            textBox.Text += "5";
+
+            Program.util.executeNumberDisplay("5", textBox);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (Program.operandState.getCurrentState() == utils.OperandStateConsts.OFF && 
-                Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
-            {
-                Program.operandState.setCurrentState(utils.OperandStateConsts.START_OPERAND_SET);
-                textBox.AppendText("1");
-            }
-            
-            else if (Program.operandState.getCurrentState() == utils.OperandStateConsts.END_OPERAND_SET &&
-                    Program.buttonState.getCurrentState() == utils.ButtonStateConsts.MODULO_BUTTON_ON)
-            {
-                string temp = textBox.Text;
-                textBox.Text = "1";
-                textBox.SelectionStart = textBox.Text.Length;
-                textBox.SelectionLength = 0;
-                textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                textBox.AppendText("\n"+temp);
-                Program.operandState.setCurrentState(utils.OperandStateConsts.OFF);
-              
-            }
-            else if (Program.operandState.getCurrentState() != utils.OperandStateConsts.OFF)
-            {
- 
-                textBox.AppendText("1");
-            }
-            else
-            {
-                string temp1 = textBox.Lines[0];
-                string temp2 = textBox.Lines[1];
-                temp1 = temp1 + "1";
-                textBox.Text = temp1;
-                textBox.SelectionStart = textBox.Text.Length;
-                textBox.SelectionLength = 0;
-                textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                textBox.AppendText("\n"+temp2);
-            }
-
-
+            Program.util.executeNumberDisplay("1",textBox);
 
         }
 
@@ -175,12 +155,10 @@ namespace NYAScieCal
         private void buttonAdd_Click(object sender, EventArgs e)
         {
 
-            if (Program.operandState.getCurrentState() == utils.OperandStateConsts.START_OPERAND_SET)
-            {
-                Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_ON);
-                Program.operandState.setCurrentState(utils.OperandStateConsts.END_OPERAND_SET);
-                textBox.AppendText(Environment.NewLine);
-            }
+            
+            Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
+                
+            
            
         }
     }
