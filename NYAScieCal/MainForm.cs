@@ -106,14 +106,40 @@ namespace NYAScieCal
             Application.Exit();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            textBox.AppendText("2");
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
+            textBox.Text += "4";
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            textBox.Text += "5";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox.AppendText("1");
+        }
+
+        private void buttonEq_Click(object sender, EventArgs e)
+        {
+            textBox.SelectionStart = textBox.Text.Length;
+            textBox.SelectionLength = 0;
+            textBox.SelectionFont=new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox.AppendText("\n"+textBox.Text);
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            textBox.SelectionStart = textBox.Text.Length;
+            textBox.SelectionLength = 0;
+            textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox.AppendText("\n"+"2");
         }
     }
 }

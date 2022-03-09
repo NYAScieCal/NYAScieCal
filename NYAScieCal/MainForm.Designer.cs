@@ -44,8 +44,8 @@ namespace NYAScieCal
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonEq = new System.Windows.Forms.Button();
             this.radicalBtn = new System.Windows.Forms.Button();
             this.exponentBtn = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -139,7 +139,6 @@ namespace NYAScieCal
             // 
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox.Location = new System.Drawing.Point(11, 24);
-            this.textBox.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox.Margin = new System.Windows.Forms.Padding(2);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(544, 62);
@@ -182,24 +181,25 @@ namespace NYAScieCal
             this.button14.Text = "button14";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // buttonAdd
             // 
-            this.button16.Location = new System.Drawing.Point(448, 132);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(92, 61);
-            this.button16.TabIndex = 10;
-            this.button16.Text = "button16";
-            this.button16.UseVisualStyleBackColor = true;
+            this.buttonAdd.Location = new System.Drawing.Point(448, 132);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(92, 61);
+            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // button10
+            // buttonEq
             // 
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(448, 484);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(92, 61);
-            this.button10.TabIndex = 5;
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.buttonEq.Image = ((System.Drawing.Image)(resources.GetObject("buttonEq.Image")));
+            this.buttonEq.Location = new System.Drawing.Point(448, 484);
+            this.buttonEq.Name = "buttonEq";
+            this.buttonEq.Size = new System.Drawing.Size(92, 61);
+            this.buttonEq.TabIndex = 5;
+            this.buttonEq.UseVisualStyleBackColor = true;
+            this.buttonEq.Click += new System.EventHandler(this.buttonEq_Click);
             // 
             // radicalBtn
             // 
@@ -280,7 +280,7 @@ namespace NYAScieCal
             this.button2.Size = new System.Drawing.Size(80, 50);
             this.button2.TabIndex = 3;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button15_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button5
             // 
@@ -292,6 +292,7 @@ namespace NYAScieCal
             this.button5.Size = new System.Drawing.Size(80, 50);
             this.button5.TabIndex = 3;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button8
             // 
@@ -315,6 +316,7 @@ namespace NYAScieCal
             this.button1.Size = new System.Drawing.Size(80, 50);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button4
             // 
@@ -326,6 +328,7 @@ namespace NYAScieCal
             this.button4.Size = new System.Drawing.Size(80, 50);
             this.button4.TabIndex = 3;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button7
             // 
@@ -360,12 +363,12 @@ namespace NYAScieCal
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 610);
-            this.Controls.Add(this.button16);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.buttonEq);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.buttonIn);
             this.Controls.Add(this.radicalBtn);
@@ -417,12 +420,12 @@ namespace NYAScieCal
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button buttonDot;
         private System.Windows.Forms.RichTextBox textBox;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonEq;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }
 
