@@ -137,9 +137,10 @@ namespace NYAScieCal
             // 
             // textBox
             // 
-            this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox.Location = new System.Drawing.Point(11, 24);
             this.textBox.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(544, 62);
             this.textBox.TabIndex = 4;
