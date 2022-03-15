@@ -21,6 +21,7 @@ namespace NYAScieCal
         public MainForm()
         {
             InitializeComponent();
+            //this.textBox.SelectionAlignment = HorizontalAlignment.Right;
             /*this.trigoBtn.Image = Program.util.resizeImage(Image.FromFile("C:\\Users\\Lazar-PC\\source\\repos\\NYAScieCal\\NYAScieCal\\images\\25243.png"),15,15);
             this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.closeBtn.Image= Program.util.resizeImage(Image.FromFile("C:\\Users\\Lazar-PC\\source\\repos\\NYAScieCal\\NYAScieCal\\images\\closeIcon.png"), 15, 15);
@@ -93,7 +94,12 @@ namespace NYAScieCal
         private void button0_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("0", textBox);
+            if (!Program.util.checkZeroStartOccurence(this.textBox))
+            {
+                Program.util.executeNumberDisplay("0", textBox);
+            }
+
+           
 
         }
 
@@ -148,19 +154,30 @@ namespace NYAScieCal
         private void buttonEq_Click(object sender, EventArgs e)
         {
 
+            //Check if operands are not null or empty
             if (Program.util.isNotEmptyOperands(this.textBox))
             {
 
+                //Get string array value of operands
                 string[] str = Program.util.getOperands(this.textBox);
+                //Create instance of CalculationModel
                 CalculationModel model = new CalculationModel(str[0], str[1]);
-                double d = Program.controller.modulo(double.Parse(model.getFirstOperand()), double.Parse(model.getEndOperand()));
-                Console.WriteLine(d);
-            }
+                //Perform operation
+                double ans = Program.controller.modulo(double.Parse(model.getFirstOperand()), double.Parse(model.getEndOperand()));
+                //Display answer
+                Program.controller.displayAnswer(this.textBox,ans.ToString());
+                //Reset na lahat walanjo
+                Program.util.resetAll();
 
+            }
             else
             {
-                Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
+
+                Program.buttonState.setCurrentState(utils.ButtonStateConsts.EQUAL_BUTTON_SET);
+
             }
+
+
 
         }
 
@@ -171,6 +188,31 @@ namespace NYAScieCal
            
                     
            
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            //temporary
+            if (Program.util.isNotEmptyOperands(this.textBox))
+            {
+
+                string[] str = Program.util.getOperands(this.textBox);
+                CalculationModel model = new CalculationModel(str[0], str[1]);
+                double ans = Program.controller.modulo(double.Parse(model.getFirstOperand()), double.Parse(model.getEndOperand()));
+                Program.controller.displayAnswer(this.textBox, ans.ToString());
+                Program.operandState.setCurrentState(OperandStateConsts.OFF);
+            }
+
+            else
+            {
+                Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
+            }
+
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -140,11 +140,11 @@ namespace NYAScieCal
             this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox.Location = new System.Drawing.Point(11, 24);
             this.textBox.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox.SelectionAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(544, 62);
             this.textBox.TabIndex = 4;
-            this.textBox.Text = "";
+            this.textBox.Text = "0";
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // button11
             // 
@@ -154,6 +154,7 @@ namespace NYAScieCal
             this.button11.TabIndex = 6;
             this.button11.Text = "button11";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 

@@ -27,6 +27,12 @@ namespace NYAScieCal.utils
         public void executeNumberDisplay(String number,RichTextBox textBox)
         {
 
+            if (checkZeroStartOccurence(textBox))
+            {
+               
+                textBox.Text = "";
+            }
+
             if (Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
             {
                 textBox.AppendText(number);
@@ -53,7 +59,7 @@ namespace NYAScieCal.utils
                 Program.operandState.setCurrentState(utils.OperandStateConsts.END_OPERAND_SET);
             }
 
-
+      
         }
 
         public Boolean isNotEmptyOperands(RichTextBox textBox)
@@ -90,6 +96,30 @@ namespace NYAScieCal.utils
 
             return results;
 
+        }
+
+        public void resetAll()
+        {
+
+            Program.buttonState.setCurrentState(ButtonStateConsts.OFF);
+            Program.operandState.setCurrentState(OperandStateConsts.OFF);
+
+        }
+
+        public Boolean checkZeroStartOccurence(RichTextBox textBox)
+        {
+            string str = textBox.Text;
+            if (str.StartsWith("0"))
+            {
+                return true;
+            }
+            else
+            {
+
+                return false;
+
+            }
+           
         }
 
     }

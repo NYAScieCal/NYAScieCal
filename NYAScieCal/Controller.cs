@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NYAScieCal
 {
@@ -14,6 +15,13 @@ namespace NYAScieCal
         public double modulo(double op1,double op2){
 
             return op1 % op2;
+
+        }
+
+        public void displayAnswer(RichTextBox textBox,string answer)
+        {
+
+            textBox.Text = answer;
 
         }
 
