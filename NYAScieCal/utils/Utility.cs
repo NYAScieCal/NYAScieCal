@@ -49,10 +49,46 @@ namespace NYAScieCal.utils
                 textBox.SelectionStart = textBox.Text.Length;
                 textBox.SelectionLength = 0;
                 textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                textBox.AppendText("\n" + temp);
+                textBox.AppendText("\n" + temp + " + ");
                 Program.operandState.setCurrentState(utils.OperandStateConsts.END_OPERAND_SET);
             }
 
+
+        }
+
+        public Boolean isNotEmptyOperands(RichTextBox textBox)
+        {
+
+            try
+            {
+                string str1 = textBox.Lines[0];
+                string str2 = textBox.Lines[1];
+                if (string.IsNullOrEmpty(str1))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+                
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
+
+        }
+
+        public string[] getOperands(RichTextBox textBox)
+        {
+
+            string str1 = textBox.Lines[0];
+            string str2 = textBox.Lines[1];
+            string[] str2Split = str2.Split(' ');
+            string[] results = { str1 , str2Split[0] };
+
+            return results;
 
         }
 
