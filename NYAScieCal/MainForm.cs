@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NYAScieCal.utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -154,11 +155,22 @@ namespace NYAScieCal
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
-            
-            Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
+         
                 
-            
+            if (Program.util.isNotEmptyOperands(this.textBox))
+            {
+
+                string[] str=Program.util.getOperands(this.textBox);
+                CalculationModel model = new CalculationModel(str[0],str[1]);
+                double d=Program.controller.add(double.Parse(model.getFirstOperand()),double.Parse(model.getEndOperand()));
+                
+            }
+
+            else
+            {
+                Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
+            }
+                    
            
         }
     }
