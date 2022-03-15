@@ -147,29 +147,28 @@ namespace NYAScieCal
 
         private void buttonEq_Click(object sender, EventArgs e)
         {
-            textBox.SelectionStart = textBox.Text.Length;
-            textBox.SelectionLength = 0;
-            textBox.SelectionFont=new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            textBox.AppendText("\n"+textBox.Text);
-        }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-         
-                
             if (Program.util.isNotEmptyOperands(this.textBox))
             {
 
-                string[] str=Program.util.getOperands(this.textBox);
-                CalculationModel model = new CalculationModel(str[0],str[1]);
-                double d=Program.controller.add(double.Parse(model.getFirstOperand()),double.Parse(model.getEndOperand()));
-                
+                string[] str = Program.util.getOperands(this.textBox);
+                CalculationModel model = new CalculationModel(str[0], str[1]);
+                double d = Program.controller.modulo(double.Parse(model.getFirstOperand()), double.Parse(model.getEndOperand()));
+                Console.WriteLine(d);
             }
 
             else
             {
                 Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
             }
+
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+         
+                
+           
                     
            
         }

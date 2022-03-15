@@ -86,7 +86,7 @@ namespace NYAScieCal.utils
             string str1 = textBox.Lines[0];
             string str2 = textBox.Lines[1];
             string[] str2Split = str2.Split(' ');
-            string[] results = { str1 , str2Split[0] };
+            string[] results = { str2Split[0] , str1 };
 
             return results;
 
