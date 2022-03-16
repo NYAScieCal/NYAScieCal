@@ -10,7 +10,8 @@ namespace NYAScieCal.utils
     {
         OFF,
         MODULO_BUTTON_SET,
-        EQUAL_BUTTON_SET
+        EQUAL_BUTTON_SET,
+        LOG_BUTOTN_SET
 
     }
 }
