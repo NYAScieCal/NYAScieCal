@@ -25,6 +25,14 @@ namespace NYAScieCal
 
         }
 
+        public double log(double number )
+        {
+            return Math.Log(number); 
+
+            
+
+        }
+
 
     }
 
