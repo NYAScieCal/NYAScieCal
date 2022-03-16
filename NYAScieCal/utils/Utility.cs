@@ -98,6 +98,11 @@ namespace NYAScieCal.utils
 
         }
 
+        public string getOperand(RichTextBox textBox)
+        {
+            return textBox.Lines[0];
+        }
+
         public void resetAll()
         {
 
@@ -120,6 +125,24 @@ namespace NYAScieCal.utils
 
             }
            
+        }
+
+        public Boolean isSingleOperand(RichTextBox textBox)
+        {
+
+            try
+            {
+                string strArr1 = textBox.Lines[0];
+                string strArr2 = textBox.Lines[1];
+                return false;
+            }
+            catch (Exception)
+            {
+      
+                return true;
+
+            }
+
         }
 
     }
