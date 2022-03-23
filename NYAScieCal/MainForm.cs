@@ -211,12 +211,7 @@ namespace NYAScieCal
         private void logBtn_Click(object sender, EventArgs e)
         {
            
-            if (Program.util.isSingleOperand(this.textBox))
-            {
-                string s = Program.util.getOperand(this.textBox);
-                double ans = Program.controller.log(double.Parse(s));
-                Program.controller.displayAnswer(this.textBox, ans.ToString());
-            }
+           
     
 
            
@@ -227,6 +222,40 @@ namespace NYAScieCal
 
             this.textBox.Text = "0";
             Program.util.resetAll();
+
+        }
+
+        private void dotBtn_Click(object sender, EventArgs e)
+        {
+
+            if (!Program.util.checkDotOccurence(this.textBox.Text))
+            {
+
+                if (Program.util.checkZeroStartOccurence(this.textBox.Text))
+                {
+                    Program.util.executeNumberDisplay("0.", this.textBox);
+                }
+                else
+                {
+                    Program.util.executeNumberDisplay(".", this.textBox);
+                }
+                
+            }
+           
+
+           
+            
+        }
+
+        private void buttonIn_Click(object sender, EventArgs e)
+        {
+
+            if (Program.util.isSingleOperand(this.textBox))
+            {
+                string s = Program.util.getOperand(this.textBox);
+                double ans = Program.controller.log(double.Parse(s));
+                Program.controller.displayAnswer(this.textBox, ans.ToString());
+            }
 
         }
     }

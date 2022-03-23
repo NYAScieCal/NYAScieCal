@@ -132,6 +132,7 @@ namespace NYAScieCal
             this.buttonIn.TabIndex = 3;
             this.buttonIn.Text = "In";
             this.buttonIn.UseVisualStyleBackColor = true;
+            this.buttonIn.Click += new System.EventHandler(this.buttonIn_Click);
             // 
             // buttonDot
             // 
@@ -144,7 +145,7 @@ namespace NYAScieCal
             this.buttonDot.Text = ".";
             this.buttonDot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonDot.UseVisualStyleBackColor = true;
-            this.buttonDot.Click += new System.EventHandler(this.clrBtn_Click);
+            this.buttonDot.Click += new System.EventHandler(this.dotBtn_Click);
             // 
             // textBox
             // 

@@ -26,7 +26,7 @@ namespace NYAScieCal.utils
 
         public void executeNumberDisplay(String number,RichTextBox textBox)
         {
-
+            
             if (checkZeroStartOccurence(textBox.Text)&&
                 Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
             {
@@ -105,7 +105,7 @@ namespace NYAScieCal.utils
         public Boolean checkZeroStartOccurence(string text)
         {
             string str = text;
-            if (str.StartsWith("0"))
+            if (str.StartsWith("0")&&(str.Length==1))
             {
                 return true;
             }
@@ -116,6 +116,21 @@ namespace NYAScieCal.utils
 
             }
            
+        }
+
+        public Boolean checkDotOccurence(string text)
+        {
+
+            string str = text;
+            if (str.Contains('.'))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public Boolean isSingleOperand(RichTextBox textBox)

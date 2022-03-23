@@ -22,6 +22,14 @@ namespace NYAScieCal
         [STAThread]
         static void Main()
         {
+
+            /*Dito ang testingan*/
+
+            Console.WriteLine(controller.modulo(12, 5));
+            Console.WriteLine(controller.log(24));
+
+            /*End*/
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
