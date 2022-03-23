@@ -65,6 +65,8 @@ namespace NYAScieCal
             this.parEndBtn = new System.Windows.Forms.Button();
             this.posNegBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
+            this.clrBtn = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,9 +141,10 @@ namespace NYAScieCal
             this.buttonDot.Name = "buttonDot";
             this.buttonDot.Size = new System.Drawing.Size(60, 36);
             this.buttonDot.TabIndex = 3;
+            this.buttonDot.Text = ".";
             this.buttonDot.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonDot.UseVisualStyleBackColor = true;
-            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
+            this.buttonDot.Click += new System.EventHandler(this.clrBtn_Click);
             // 
             // textBox
             // 
@@ -414,7 +417,7 @@ namespace NYAScieCal
             this.posNegBtn.TabIndex = 3;
             this.posNegBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.posNegBtn.UseVisualStyleBackColor = true;
-            this.posNegBtn.Click += new System.EventHandler(this.buttonDot_Click);
+            this.posNegBtn.Click += new System.EventHandler(this.clrBtn_Click);
             // 
             // panel1
             // 
@@ -423,6 +426,32 @@ namespace NYAScieCal
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(191, 198);
             this.panel1.TabIndex = 11;
+            // 
+            // button10
+            // 
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button10.Location = new System.Drawing.Point(345, 91);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(60, 36);
+            this.button10.TabIndex = 3;
+            this.button10.Text = "x";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.clrBtn_Click);
+            // 
+            // clrBtn
+            // 
+            this.clrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clrBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.clrBtn.Location = new System.Drawing.Point(279, 91);
+            this.clrBtn.Name = "clrBtn";
+            this.clrBtn.Size = new System.Drawing.Size(60, 36);
+            this.clrBtn.TabIndex = 3;
+            this.clrBtn.Text = "c";
+            this.clrBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.clrBtn.UseVisualStyleBackColor = true;
+            this.clrBtn.Click += new System.EventHandler(this.clrBtn_Click);
             // 
             // MainForm
             // 
@@ -449,6 +478,8 @@ namespace NYAScieCal
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.posNegBtn);
+            this.Controls.Add(this.clrBtn);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.buttonDot);
             this.Controls.Add(this.button0);
             this.Controls.Add(this.button2);
@@ -461,7 +492,7 @@ namespace NYAScieCal
             this.Controls.Add(this.modeBtn);
             this.Controls.Add(this.trigoBtn);
             this.Controls.Add(this.titleBar);
-            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.titleBar.ResumeLayout(false);
@@ -504,6 +535,8 @@ namespace NYAScieCal
         private System.Windows.Forms.Button parEndBtn;
         private System.Windows.Forms.Button posNegBtn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button clrBtn;
     }
 }
 

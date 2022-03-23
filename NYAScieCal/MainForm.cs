@@ -222,8 +222,11 @@ namespace NYAScieCal
            
         }
 
-        private void buttonDot_Click(object sender, EventArgs e)
+        private void clrBtn_Click(object sender, EventArgs e)
         {
+
+            this.textBox.Text = "0";
+            Program.util.resetAll();
 
         }
     }
