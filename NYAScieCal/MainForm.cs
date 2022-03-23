@@ -94,7 +94,7 @@ namespace NYAScieCal
         private void button0_Click(object sender, EventArgs e)
         {
 
-            if (!Program.util.checkZeroStartOccurence(this.textBox))
+            if (!Program.util.checkZeroStartOccurence(this.textBox.Text))
             {
                 Program.util.executeNumberDisplay("0", textBox);
             }
@@ -153,11 +153,8 @@ namespace NYAScieCal
 
         private void buttonEq_Click(object sender, EventArgs e)
         {
-
-            //Check if operands are not null or empty
-            if (Program.util.isNotEmptyOperands(this.textBox))
+            try
             {
-
                 //Get string array value of operands
                 string[] str = Program.util.getOperands(this.textBox);
                 //Create instance of CalculationModel
@@ -165,18 +162,15 @@ namespace NYAScieCal
                 //Perform operation
                 double ans = Program.controller.modulo(double.Parse(model.getFirstOperand()), double.Parse(model.getEndOperand()));
                 //Display answer
-                Program.controller.displayAnswer(this.textBox,ans.ToString());
+                Program.controller.displayAnswer(this.textBox, ans.ToString());
                 //Reset na lahat walanjo
                 Program.util.resetAll();
-
             }
-            else
+            catch (IndexOutOfRangeException)
             {
 
-                Program.buttonState.setCurrentState(utils.ButtonStateConsts.EQUAL_BUTTON_SET);
-
             }
-
+            
 
 
         }
@@ -193,8 +187,7 @@ namespace NYAScieCal
         private void button11_Click(object sender, EventArgs e)
         {
             //temporary
-            if (Program.util.isNotEmptyOperands(this.textBox))
-            {
+            try { 
 
                 string[] str = Program.util.getOperands(this.textBox);
                 CalculationModel model = new CalculationModel(str[0], str[1]);
@@ -203,7 +196,7 @@ namespace NYAScieCal
                 Program.operandState.setCurrentState(OperandStateConsts.OFF);
             }
 
-            else
+            catch(IndexOutOfRangeException)
             {
                 Program.buttonState.setCurrentState(utils.ButtonStateConsts.MODULO_BUTTON_SET);
             }
