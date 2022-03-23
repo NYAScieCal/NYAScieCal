@@ -27,6 +27,7 @@ namespace NYAScieCal
 
             Console.WriteLine(controller.modulo(12, 5));
             Console.WriteLine(controller.log(24));
+            Console.WriteLine("Testing");
 
             /*End*/
 
