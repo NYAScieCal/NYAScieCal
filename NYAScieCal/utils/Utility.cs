@@ -27,10 +27,12 @@ namespace NYAScieCal.utils
         public void executeNumberDisplay(String number,RichTextBox textBox)
         {
 
-            if (checkZeroStartOccurence(textBox))
+            if (checkZeroStartOccurence(textBox.Text)&&
+                Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
             {
                
                 textBox.Text = "";
+                
             }
 
             if (Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
@@ -48,8 +50,10 @@ namespace NYAScieCal.utils
                 textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox.AppendText("\n" + temp2);
             }
+           
             else
             {
+                
                 string temp = textBox.Text;
                 textBox.Text = number;
                 textBox.SelectionStart = textBox.Text.Length;
@@ -62,29 +66,6 @@ namespace NYAScieCal.utils
       
         }
 
-        public Boolean isNotEmptyOperands(RichTextBox textBox)
-        {
-
-            try
-            {
-                string str1 = textBox.Lines[0];
-                string str2 = textBox.Lines[1];
-                if (string.IsNullOrEmpty(str1))
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-                
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return false;
-            }
-
-        }
 
         public string[] getOperands(RichTextBox textBox)
         {
@@ -111,9 +92,9 @@ namespace NYAScieCal.utils
 
         }
 
-        public Boolean checkZeroStartOccurence(RichTextBox textBox)
+        public Boolean checkZeroStartOccurence(string text)
         {
-            string str = textBox.Text;
+            string str = text;
             if (str.StartsWith("0"))
             {
                 return true;
