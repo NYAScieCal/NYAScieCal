@@ -228,5 +228,10 @@ namespace NYAScieCal
 
            
         }
+
+        private void buttonDot_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
