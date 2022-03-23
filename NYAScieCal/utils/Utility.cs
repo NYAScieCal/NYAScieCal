@@ -41,9 +41,19 @@ namespace NYAScieCal.utils
             }
             else if (Program.operandState.getCurrentState() == utils.OperandStateConsts.END_OPERAND_SET)
             {
+
                 string temp1 = textBox.Lines[0];
                 string temp2 = textBox.Lines[1];
-                temp1 = temp1 + number;
+
+                if (checkZeroStartOccurence(temp1))
+                {
+                    temp1 =  number;
+                }
+                else
+                {
+                    temp1 = temp1 + number;
+                }
+                
                 textBox.Text = temp1;
                 textBox.SelectionStart = textBox.Text.Length;
                 textBox.SelectionLength = 0;
