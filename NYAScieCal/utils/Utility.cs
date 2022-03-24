@@ -208,7 +208,7 @@ namespace NYAScieCal.utils
                     for (int k = 0; k < arr[j,1]; k++)
                     {
 
-                        res = res * getTranslatedXCoordinate(panel.Width/2,i,12);
+                        res = res * getTranslatedXCoordinate(panel.Width,i,12);
 
                     }
 
@@ -216,7 +216,7 @@ namespace NYAScieCal.utils
 
                 }
 
-                Console.WriteLine(getTranslatedXCoordinate(panel.Width / 2, i, 12)+" "+total);
+                Console.WriteLine(getTranslatedXCoordinate(panel.Width, i, 12)+" "+total);
 
             }
 
