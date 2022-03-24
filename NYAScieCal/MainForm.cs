@@ -258,5 +258,13 @@ namespace NYAScieCal
             }
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+            Program.util.paintGraph(this.panel1);
+
+
+        }
     }
 }

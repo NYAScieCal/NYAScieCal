@@ -151,5 +151,45 @@ namespace NYAScieCal.utils
 
         }
 
+        public void paintGraph(Panel panel)
+        {
+
+            System.Drawing.Graphics graphicsObj;
+            Point origin = new Point((int)panel.Width / 2, (int)panel.Height / 2);
+            Point boundaryY = new Point(0,panel.Height);
+            Point boundaryX = new Point(0, panel.Width);
+            graphicsObj = panel.CreateGraphics();
+
+            Pen myPen = new Pen(System.Drawing.Color.Blue, 1);
+            graphicsObj.DrawLine(myPen, (int)panel.Width / 2, 0, (int)panel.Width / 2,panel.Height);
+            myPen = new Pen(System.Drawing.Color.Blue, 2);
+            graphicsObj.DrawLine(myPen, 0, (int)panel.Height / 2, panel.Width, (int)panel.Height / 2);
+           
+            for (int i=origin.Y;i>=boundaryY.X;i-=5)
+            {
+                graphicsObj.DrawLine(myPen, origin.X - 2, i, origin.X + 2, i);
+            }
+
+            for (int i = origin.Y; i <=boundaryY.Y ; i += 5)
+            {
+                graphicsObj.DrawLine(myPen, origin.X - 2, i, origin.X + 2, i);
+            }
+
+            myPen = new Pen(System.Drawing.Color.Blue, 1);
+
+            for (int i = origin.X-5; i >= boundaryX.X; i -= 5)
+            {
+                graphicsObj.DrawLine(myPen, i, origin.Y-3, i, origin.Y+2);
+            }
+
+            for (int i = origin.X + 5; i <= boundaryX.Y; i += 5)
+            {
+                graphicsObj.DrawLine(myPen, i, origin.Y - 3, i, origin.Y + 2);
+            }
+
+           
+
+        }
+
     }
 }
