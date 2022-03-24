@@ -262,9 +262,16 @@ namespace NYAScieCal
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-            Program.util.paintGraph(this.panel1);
+            Program.util.paintGraph(this.panel1,6);
 
 
+        }
+
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            float[] arr = Program.util.getTranslatedCoordinates(this.panel1.Width, this.panel1.Height, new Point(e.X, e.Y));
+            Console.WriteLine(arr[0] + " " + arr[1]);
         }
     }
 }
