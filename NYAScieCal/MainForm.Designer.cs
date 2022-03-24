@@ -441,7 +441,7 @@ namespace NYAScieCal
             this.button10.Text = "x";
             this.button10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.clrBtn_Click);
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // clrBtn
             // 

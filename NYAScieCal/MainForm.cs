@@ -262,7 +262,7 @@ namespace NYAScieCal
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-            Program.util.paintGraph(this.panel1,6);
+            Program.util.paintGraph(this.panel1,12);
 
 
         }
@@ -270,8 +270,17 @@ namespace NYAScieCal
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            float[] arr = Program.util.getTranslatedCoordinates(this.panel1.Width, this.panel1.Height, new Point(e.X, e.Y));
+            double[] arr = Program.util.getTranslatedCoordinates(this.panel1.Width, this.panel1.Height, new Point(e.X, e.Y),12);
+
             Console.WriteLine(arr[0] + " " + arr[1]);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            double[,] s = new double[,] { { 1, 2 }};
+     
+            Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));
+
         }
     }
 }

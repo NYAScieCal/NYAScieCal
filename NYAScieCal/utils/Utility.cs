@@ -194,30 +194,61 @@ namespace NYAScieCal.utils
         public void graphFunction(Panel panel,PolynomialModel model)
         {
 
-           
+
+            for (int i=0;i<panel.Width;i++)
+            {
+
+                double[,] arr = model.getTerm();
+                double total = 0;
+
+                for (int j = 0; j < 1; j++)
+                {
+                    double res = arr[j,0];
+
+                    for (int k = 0; k < arr[j,1]; k++)
+                    {
+
+                        res = res * getTranslatedXCoordinate(panel.Width/2,i,12);
+
+                    }
+
+                    total = total + res;
+
+                }
+
+                Console.WriteLine(getTranslatedXCoordinate(panel.Width / 2, i, 12)+" "+total);
+
+            }
 
         }
 
-        public float[] getTranslatedCoordinates(int xBoundery,int yBoundery,Point point)
+        public double[] getTranslatedCoordinates(int xBoundery,int yBoundery,Point point,int range)
         {
 
-           float[] arr = new float[2];
+           double[] arr = new double[2];
 
-           arr[0] = (float)(point.X - (xBoundery / 2))/6;
-           arr[1] = (float)((yBoundery / 2) - point.Y)/6;
+           arr[0] = (double)(point.X - (xBoundery / 2))/range;
+           arr[1] = (double)((yBoundery / 2) - point.Y)/range;
+
+           arr[0] = Convert.ToDouble(arr[0].ToString("0.###"));
+           arr[1] = Convert.ToDouble(arr[1].ToString("0.###"));
 
            return arr;
 
         }
 
-        public float getTranslatedXCoordinate(int xBoundery,int x)
+        public double getTranslatedXCoordinate(int xBoundery,int x,int range)
         {
-            return (float)(x - (xBoundery / 2)) / 10;
+            double val = (double)(x - (xBoundery / 2)) / range;
+            val= Convert.ToDouble(val.ToString("0.###"));
+            return val;
         }
 
-        public float getTranslatedYCoordinate(int yBoundery, int y)
+        public double getTranslatedYCoordinate(int yBoundery, int y,int range)
         {
-            return (float)((yBoundery / 2) - y) / 10;
+            double val = (float)((yBoundery / 2) - y) / range;
+            val = Convert.ToDouble(val.ToString("0.###"));
+            return val;
 
         }
 

@@ -10,21 +10,21 @@ namespace NYAScieCal.utils
     internal class PolynomialModel
     {
 
-        private double[] coefficient;
+        private double[,] term;
         private int degree;
 
-        public PolynomialModel(double[] coefficient,int degree)
+        public PolynomialModel(double[,] term,int degree)
         {
 
-            this.coefficient = coefficient;
+            this.term = term;
             this.degree=degree;
 
         }
 
-        public double[] getCoefficent()
+        public double[,] getTerm()
         {
 
-            return this.coefficient;
+            return this.term;
 
         }
 
