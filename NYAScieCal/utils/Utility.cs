@@ -201,7 +201,7 @@ namespace NYAScieCal.utils
                 double[,] arr = model.getTerm();
                 double total = 0;
 
-                for (int j = 0; j < 1; j++)
+                for (int j = 0; j < arr.GetLength(0); j++)
                 {
                     double res = arr[j,0];
 

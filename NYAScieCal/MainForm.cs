@@ -277,7 +277,7 @@ namespace NYAScieCal
 
         private void button10_Click(object sender, EventArgs e)
         {
-            double[,] s = new double[,] { { 1, 2 }};
+            double[,] s = new double[,] { { 1, 2 },{ 3 , 1} };
      
             Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));
 
