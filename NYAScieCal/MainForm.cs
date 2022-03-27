@@ -262,7 +262,7 @@ namespace NYAScieCal
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-            Program.util.paintGraph(this.panel1,12);
+            Program.util.paintGraph(this.panel1,15);
 
 
         }
@@ -270,15 +270,21 @@ namespace NYAScieCal
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            double[] arr = Program.util.getTranslatedCoordinates(this.panel1.Width, this.panel1.Height, new Point(e.X, e.Y),12);
+            double[] arr = Program.util.getTranslatedCoordinates(this.panel1.Width, this.panel1.Height, new Point(e.X, e.Y),15);
 
-            Console.WriteLine(arr[0] + " " + arr[1]);
+            Console.Write("Actual x corrdinate: " + e.X);
+            double transX = Program.util.getTranslatedXCoordinate(this.panel1.Width, e.X, 15);
+            Console.Write(" Translated x coordinate: " + transX);
+            Console.WriteLine(" Actual x coordinate again: " + Program.util.getActualXValue(this.panel1.Width, transX, 15));
+
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            double[,] s = new double[,] { { 1, 2 },{ 3 , 1} };
-     
+            //double[,] s = new double[,] { { 1, 2 },{ 3 , 4} };
+            //double[,] s = new double[,] { { 1, 2 },{ 4 , 1 } ,{ 4 , 0} };
+            //double[,] s = new double[,] { { 1, 2 }};
+            double[,] s = new double[,] { { 1, 1 },{ 3,0} };
             Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));
 
         }
