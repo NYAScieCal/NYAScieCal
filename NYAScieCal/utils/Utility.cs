@@ -194,6 +194,9 @@ namespace NYAScieCal.utils
         public void graphFunction(Panel panel,PolynomialModel model)
         {
 
+            System.Drawing.Graphics graphicsObj = panel.CreateGraphics();
+            Pen myPen = new Pen(System.Drawing.Color.Black, 1);
+            Point[] points = new Point[panel.Width];
 
             for (int i=0;i<panel.Width;i++)
             {
@@ -208,7 +211,7 @@ namespace NYAScieCal.utils
                     for (int k = 0; k < arr[j,1]; k++)
                     {
 
-                        res = res * getTranslatedXCoordinate(panel.Width,i,12);
+                        res = res * getTranslatedXCoordinate(panel.Width,i,15);
 
                     }
 
@@ -216,9 +219,17 @@ namespace NYAScieCal.utils
 
                 }
 
-                Console.WriteLine(getTranslatedXCoordinate(panel.Width, i, 12)+" "+total);
+                points[i] = new Point(i,getActualRangeValue(panel.Height,total,15));
+
+                Console.Write("Actual x corrdinate: "+i);
+                Console.Write(" Translated x coordinate: "+getTranslatedXCoordinate(panel.Width, i, 15));
+                Console.Write(" Range: "+total);
+                Console.WriteLine(" Actual Range: " + getActualRangeValue(panel.Height,total,15));
+
 
             }
+
+            graphicsObj.DrawCurve(myPen, points);
 
         }
 
@@ -246,8 +257,24 @@ namespace NYAScieCal.utils
 
         public double getTranslatedYCoordinate(int yBoundery, int y,int range)
         {
-            double val = (float)((yBoundery / 2) - y) / range;
+            double val = (double)((yBoundery / 2) - y) / range;
             val = Convert.ToDouble(val.ToString("0.###"));
+            return val;
+
+        }
+
+        public int getActualRangeValue(int yBoundery,double y,int range)
+        {
+
+            int val = (int)((yBoundery/2)-(y*range));
+            return val;
+
+        }
+
+        public int getActualXValue(int xBoundery,double x,int range)
+        {
+
+            int val = (int)((x * range) + (xBoundery / 2));
             return val;
 
         }
