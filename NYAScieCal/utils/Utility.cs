@@ -195,6 +195,7 @@ namespace NYAScieCal.utils
         {
 
             System.Drawing.Graphics graphicsObj = panel.CreateGraphics();
+            graphicsObj.SmoothingMode = SmoothingMode.AntiAlias;
             Pen myPen = new Pen(System.Drawing.Color.Black, 1);
             Point[] points = new Point[panel.Width];
 
