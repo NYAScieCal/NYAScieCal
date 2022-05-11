@@ -35,6 +35,7 @@ namespace NYAScieCal.utils
                 
             }
 
+
             if (Program.buttonState.getCurrentState() == utils.ButtonStateConsts.OFF)
             {
                 textBox.AppendText(number);
@@ -63,7 +64,7 @@ namespace NYAScieCal.utils
            
             else
             {
-                
+
                 string temp = textBox.Text;
                 textBox.Text = number;
                 textBox.SelectionStart = textBox.Text.Length;
@@ -71,11 +72,52 @@ namespace NYAScieCal.utils
                 textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 textBox.AppendText("\n" + temp + " + ");
                 Program.operandState.setCurrentState(utils.OperandStateConsts.END_OPERAND_SET);
+
             }
 
       
         }
 
+        public void executeCharacterDisplay(String character, RichTextBox textBox)
+        {
+
+
+            if (!textBox.Text.Equals("0"))
+            {
+
+                textBox.AppendText(character);
+
+            }
+
+            else
+            {
+
+                textBox.Text = "";
+                textBox.Text = character;
+
+
+            }
+
+        }
+
+        public void executeExponentDisplay(String character, RichTextBox textBox)
+        {
+
+            if (textBox.Text.Equals("0"))
+            {
+
+                textBox.Text = "";
+
+            }
+
+            textBox.SelectedText = "x";
+            // Set the CharOffset to display superscript text.
+            textBox.SelectionCharOffset = 15;
+            // Set the superscripted text.	
+            textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textBox.SelectedText = "";
+
+        }
 
         public string[] getOperands(RichTextBox textBox)
         {
