@@ -47,7 +47,7 @@ namespace NYAScieCal
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonEq = new System.Windows.Forms.Button();
             this.radicalBtn = new System.Windows.Forms.Button();
-            this.exponentBtn = new System.Windows.Forms.Button();
+            this.varBtn = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@ namespace NYAScieCal
             this.panel1 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.clrBtn = new System.Windows.Forms.Button();
+            this.modeComboBox = new System.Windows.Forms.ComboBox();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,15 +226,16 @@ namespace NYAScieCal
             this.radicalBtn.TabIndex = 3;
             this.radicalBtn.UseVisualStyleBackColor = true;
             // 
-            // exponentBtn
+            // varBtn
             // 
-            this.exponentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exponentBtn.Image = ((System.Drawing.Image)(resources.GetObject("exponentBtn.Image")));
-            this.exponentBtn.Location = new System.Drawing.Point(3, 214);
-            this.exponentBtn.Name = "exponentBtn";
-            this.exponentBtn.Size = new System.Drawing.Size(62, 35);
-            this.exponentBtn.TabIndex = 3;
-            this.exponentBtn.UseVisualStyleBackColor = true;
+            this.varBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.varBtn.Image = ((System.Drawing.Image)(resources.GetObject("varBtn.Image")));
+            this.varBtn.Location = new System.Drawing.Point(3, 214);
+            this.varBtn.Name = "varBtn";
+            this.varBtn.Size = new System.Drawing.Size(62, 35);
+            this.varBtn.TabIndex = 3;
+            this.varBtn.UseVisualStyleBackColor = true;
+            this.varBtn.Click += new System.EventHandler(this.varBtn_Click);
             // 
             // button9
             // 
@@ -456,11 +458,25 @@ namespace NYAScieCal
             this.clrBtn.UseVisualStyleBackColor = true;
             this.clrBtn.Click += new System.EventHandler(this.clrBtn_Click);
             // 
+            // modeComboBox
+            // 
+            this.modeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modeComboBox.FormattingEnabled = true;
+            this.modeComboBox.Items.AddRange(new object[] {
+            "Standard",
+            "Graphing"});
+            this.modeComboBox.Location = new System.Drawing.Point(155, 92);
+            this.modeComboBox.Name = "modeComboBox";
+            this.modeComboBox.Size = new System.Drawing.Size(121, 28);
+            this.modeComboBox.TabIndex = 12;
+            this.modeComboBox.SelectedIndexChanged += new System.EventHandler(this.modeComboBox_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 505);
+            this.Controls.Add(this.modeComboBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.button14);
@@ -475,7 +491,7 @@ namespace NYAScieCal
             this.Controls.Add(this.parOpBtn);
             this.Controls.Add(this.natLogBtn);
             this.Controls.Add(this.fractionBtn);
-            this.Controls.Add(this.exponentBtn);
+            this.Controls.Add(this.varBtn);
             this.Controls.Add(this.logBtn);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button3);
@@ -512,7 +528,7 @@ namespace NYAScieCal
         private System.Windows.Forms.Label closeBtn;
         private System.Windows.Forms.Button logBtn;
         private System.Windows.Forms.Button buttonIn;
-        private System.Windows.Forms.Button exponentBtn;
+        private System.Windows.Forms.Button varBtn;
         private System.Windows.Forms.Button radicalBtn;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -540,6 +556,7 @@ namespace NYAScieCal
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button clrBtn;
+        private System.Windows.Forms.ComboBox modeComboBox;
     }
 }
 

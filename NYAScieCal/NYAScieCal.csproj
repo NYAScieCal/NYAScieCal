@@ -63,6 +63,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\ButtonState.cs" />
     <Compile Include="utils\ButtonStateConsts.cs" />
+    <Compile Include="utils\CalcMode.cs" />
+    <Compile Include="utils\CalcModeConsts.cs" />
     <Compile Include="utils\CalculationModel.cs" />
     <Compile Include="utils\OperandState.cs" />
     <Compile Include="utils\OperandStateConsts.cs" />

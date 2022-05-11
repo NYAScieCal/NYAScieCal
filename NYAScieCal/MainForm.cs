@@ -21,6 +21,7 @@ namespace NYAScieCal
         public MainForm()
         {
             InitializeComponent();
+            modeComboBox.SelectedIndex = 0;
             //this.textBox.SelectionAlignment = HorizontalAlignment.Right;
             /*this.trigoBtn.Image = Program.util.resizeImage(Image.FromFile("C:\\Users\\Lazar-PC\\source\\repos\\NYAScieCal\\NYAScieCal\\images\\25243.png"),15,15);
             this.trigoBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -72,48 +73,119 @@ namespace NYAScieCal
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
 
-            Program.util.executeNumberDisplay("7", textBox);
+                Program.util.executeNumberDisplay("7", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("7",textBox);
+
+            }
+            
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("6", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("6", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("6", textBox);
+
+            }
+
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("3", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("3", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("3", textBox);
+
+            }
+
 
         }
 
         private void button0_Click(object sender, EventArgs e)
         {
 
-            if (!Program.util.checkZeroStartOccurence(this.textBox.Text))
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
             {
-                Program.util.executeNumberDisplay("0", textBox);
-            }
 
-           
+                if (!Program.util.checkZeroStartOccurence(this.textBox.Text))
+                {
+                    Program.util.executeNumberDisplay("0", textBox);
+                }
+
+            }
+            else
+            {
+
+                if (!Program.util.checkZeroStartOccurence(this.textBox.Text))
+                {
+
+                    Program.util.executeCharacterDisplay("0", textBox);
+
+                }
+
+            }
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("8", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("8", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("8", textBox);
+
+            }
 
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("9", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("9", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("9", textBox);
+
+            }
 
         }
 
@@ -125,29 +197,72 @@ namespace NYAScieCal
         private void button2_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("2", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
 
+                Program.util.executeNumberDisplay("2", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("2", textBox);
+
+            }
 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("4", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("4", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("4", textBox);
+
+            }
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("5", textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("6", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("6", textBox);
+
+            }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Program.util.executeNumberDisplay("1",textBox);
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+                Program.util.executeNumberDisplay("1", textBox);
+
+            }
+            else
+            {
+
+                Program.util.executeCharacterDisplay("1", textBox);
+
+            }
 
         }
 
@@ -286,6 +401,45 @@ namespace NYAScieCal
             //double[,] s = new double[,] { { 1, 2 }};
             //double[,] s = new double[,] { { 1, 1 },{ 3,0} };
             Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));
+
+        }
+
+        private void varBtn_Click(object sender, EventArgs e)
+        {
+
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+            }
+            else
+            {
+
+                Program.util.executeExponentDisplay("x",this.textBox);
+
+
+            }
+            
+
+
+
+        }
+
+        private void modeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (modeComboBox.SelectedIndex==0)
+            {
+
+                Program.calcMode.setCalcMode(CalcModeConsts.STANDARD);
+
+            }
+            else
+            {
+
+                Program.calcMode.setCalcMode(CalcModeConsts.GRAPHING);
+
+
+            }
 
         }
     }
