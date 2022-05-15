@@ -65,12 +65,34 @@ namespace NYAScieCal.utils
             else
             {
 
+                string opSign = "";
+
+                if (Program.buttonState.getCurrentState() == utils.ButtonStateConsts.ADD_BUTTON_SET)
+                {
+                    opSign = "+";
+                }
+                else if(Program.buttonState.getCurrentState() == utils.ButtonStateConsts.SUBTRACT_BUTTON_SET)
+                {
+                    opSign = "-";
+                }
+                else if (Program.buttonState.getCurrentState() == utils.ButtonStateConsts.MULTIPLY_BUTTON_SET)
+                {
+                    opSign = "x";
+                }
+                else if (Program.buttonState.getCurrentState() == utils.ButtonStateConsts.DIVIDE_BUTTON_SET)
+                {
+                    opSign = "/";
+                }
+                else
+                {
+                    opSign = "%";
+                }
                 string temp = textBox.Text;
                 textBox.Text = number;
                 textBox.SelectionStart = textBox.Text.Length;
                 textBox.SelectionLength = 0;
                 textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                textBox.AppendText("\n" + temp + " + ");
+                textBox.AppendText("\n" + temp + " "+opSign+" ");
                 Program.operandState.setCurrentState(utils.OperandStateConsts.END_OPERAND_SET);
 
             }
@@ -110,12 +132,27 @@ namespace NYAScieCal.utils
 
             }
 
-            textBox.SelectedText = "x";
+            if (Program.calcMode.GetCalcMode() == CalcModeConsts.STANDARD)
+            {
+
+
+                textBox.Text = "";
+                textBox.SelectedText = character;
+
+            }
+            else
+            {
+
+                textBox.SelectedText = "x";
+
+            }
+
             // Set the CharOffset to display superscript text.
             textBox.SelectionCharOffset = 15;
             // Set the superscripted text.	
             textBox.SelectionFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             textBox.SelectedText = "";
+            
 
         }
 
@@ -136,11 +173,21 @@ namespace NYAScieCal.utils
             return textBox.Lines[0];
         }
 
-        public void resetAll()
+        public void resetState()
         {
 
             Program.buttonState.setCurrentState(ButtonStateConsts.OFF);
             Program.operandState.setCurrentState(OperandStateConsts.OFF);
+
+        }
+
+        public void resetFont(RichTextBox textBox)
+        {
+
+            textBox.SelectionCharOffset = 0;
+            textBox.SelectionStart = textBox.Text.Length;
+            textBox.SelectionLength = 0;
+            textBox.SelectionFont= new System.Drawing.Font("Microsoft Sans Serif", 25.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
         }
 
