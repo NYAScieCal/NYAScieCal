@@ -18,6 +18,7 @@ namespace NYAScieCal
         public static Controller controller = new Controller();
         public static OperandState operandState = new OperandState();
         public static CalcMode calcMode = new CalcMode();
+        public static ExponentButtonToggle expBtnToggle= new ExponentButtonToggle();
         public static NYAScieCal.utils.ButtonState buttonState = new NYAScieCal.utils.ButtonState();
 
         [STAThread]
@@ -25,12 +26,11 @@ namespace NYAScieCal
         {
 
             calcMode.setCalcMode(CalcModeConsts.STANDARD);
+            expBtnToggle.setExpBtnStatus(ButtonStateConsts.EXPONENT_BUTTON_OFF);
 
             /*Dito ang testingan*/
 
-            Console.WriteLine(controller.modulo(12, 5));
-            Console.WriteLine(controller.log(24));
-            Console.WriteLine("Testing");
+            Console.WriteLine(Program.controller.root(27,3));
 
             /*End*/
 

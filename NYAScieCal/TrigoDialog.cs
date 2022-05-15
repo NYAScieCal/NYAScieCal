@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NYAScieCal.utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace NYAScieCal
 {
     public partial class TrigoDialog : Form
     {
-        public TrigoDialog()
+
+        private RichTextBox textBox;
+        public TrigoDialog(RichTextBox textBox)
         {
+            this.textBox = textBox;
             InitializeComponent();
             
         }
@@ -21,6 +25,8 @@ namespace NYAScieCal
         private void sinBtn_Click(object sender, EventArgs e)
         {
 
+            Program.buttonState.setCurrentState(ButtonStateConsts.SIN_BUTTON_SET);
+            this.textBox.Text = "sin (" + this.textBox.Text + ")";
             this.Close();
 
         }
@@ -28,6 +34,8 @@ namespace NYAScieCal
         private void cosBtn_Click(object sender, EventArgs e)
         {
 
+            Program.buttonState.setCurrentState(ButtonStateConsts.COS_BUTTON_SET);
+            this.textBox.Text = "cos (" + this.textBox.Text + ")";
             this.Close();
 
         }
@@ -35,6 +43,8 @@ namespace NYAScieCal
         private void tanBtn_Click(object sender, EventArgs e)
         {
 
+            Program.buttonState.setCurrentState(ButtonStateConsts.TAN_BUTTON_SET);
+            this.textBox.Text = "tan (" + this.textBox.Text + ")";
             this.Close();
 
         }
@@ -42,6 +52,8 @@ namespace NYAScieCal
         private void cotBtn_Click(object sender, EventArgs e)
         {
 
+            Program.buttonState.setCurrentState(ButtonStateConsts.COT_BUTTON_SET);
+            this.textBox.Text = "cot (" + this.textBox.Text + ")";
             this.Close();
 
         }
@@ -49,12 +61,16 @@ namespace NYAScieCal
         private void secBtn_Click(object sender, EventArgs e)
         {
 
+            Program.buttonState.setCurrentState(ButtonStateConsts.SEC_BUTTON_SET);
+            this.textBox.Text = "sec (" + this.textBox.Text + ")";
             this.Close();
 
         }
         private void cscBtn_Click(object sender, EventArgs e)
         {
 
+            Program.buttonState.setCurrentState(ButtonStateConsts.CSC_BUTTON_SET);
+            this.textBox.Text = "csc (" + this.textBox.Text + ")";
             this.Close();
 
         }

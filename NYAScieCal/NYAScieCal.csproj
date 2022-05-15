@@ -66,6 +66,7 @@
     <Compile Include="utils\CalcMode.cs" />
     <Compile Include="utils\CalcModeConsts.cs" />
     <Compile Include="utils\CalculationModel.cs" />
+    <Compile Include="utils\ExponentButtonToggle.cs" />
     <Compile Include="utils\OperandState.cs" />
     <Compile Include="utils\OperandStateConsts.cs" />
     <Compile Include="utils\PolynomialModel.cs" />

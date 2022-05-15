@@ -40,14 +40,14 @@ namespace NYAScieCal
             this.buttonIn = new System.Windows.Forms.Button();
             this.buttonDot = new System.Windows.Forms.Button();
             this.textBox = new System.Windows.Forms.RichTextBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.moduloBtn = new System.Windows.Forms.Button();
+            this.buttonDivide = new System.Windows.Forms.Button();
+            this.buttonMultiply = new System.Windows.Forms.Button();
+            this.buttonSubtract = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonEq = new System.Windows.Forms.Button();
             this.radicalBtn = new System.Windows.Forms.Button();
-            this.varBtn = new System.Windows.Forms.Button();
+            this.expBtn = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -59,8 +59,8 @@ namespace NYAScieCal
             this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.trigoBtn = new System.Windows.Forms.Button();
-            this.fractionBtn = new System.Windows.Forms.Button();
-            this.natLogBtn = new System.Windows.Forms.Button();
+            this.eulerBtn = new System.Windows.Forms.Button();
+            this.permBtn = new System.Windows.Forms.Button();
             this.parOpBtn = new System.Windows.Forms.Button();
             this.parEndBtn = new System.Windows.Forms.Button();
             this.posNegBtn = new System.Windows.Forms.Button();
@@ -68,6 +68,8 @@ namespace NYAScieCal
             this.button10 = new System.Windows.Forms.Button();
             this.clrBtn = new System.Windows.Forms.Button();
             this.modeComboBox = new System.Windows.Forms.ComboBox();
+            this.logFuncBtn = new System.Windows.Forms.Button();
+            this.eulerFuncBtn = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,42 +161,43 @@ namespace NYAScieCal
             this.textBox.Text = "0";
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
-            // button11
+            // moduloBtn
             // 
-            this.button11.Location = new System.Drawing.Point(335, 376);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(70, 55);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.moduloBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduloBtn.Location = new System.Drawing.Point(335, 376);
+            this.moduloBtn.Name = "moduloBtn";
+            this.moduloBtn.Size = new System.Drawing.Size(70, 55);
+            this.moduloBtn.TabIndex = 6;
+            this.moduloBtn.Text = "%";
+            this.moduloBtn.UseVisualStyleBackColor = true;
+            this.moduloBtn.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button12
+            // buttonDivide
             // 
-            this.button12.Location = new System.Drawing.Point(335, 315);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(70, 55);
-            this.button12.TabIndex = 7;
-            this.button12.Text = "button12";
-            this.button12.UseVisualStyleBackColor = true;
+            this.buttonDivide.Location = new System.Drawing.Point(335, 315);
+            this.buttonDivide.Name = "buttonDivide";
+            this.buttonDivide.Size = new System.Drawing.Size(70, 55);
+            this.buttonDivide.TabIndex = 7;
+            this.buttonDivide.UseVisualStyleBackColor = true;
+            this.buttonDivide.Click += new System.EventHandler(this.buttonDivide_Click);
             // 
-            // button13
+            // buttonMultiply
             // 
-            this.button13.Location = new System.Drawing.Point(335, 254);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(70, 55);
-            this.button13.TabIndex = 8;
-            this.button13.Text = "button13";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonMultiply.Location = new System.Drawing.Point(335, 254);
+            this.buttonMultiply.Name = "buttonMultiply";
+            this.buttonMultiply.Size = new System.Drawing.Size(70, 55);
+            this.buttonMultiply.TabIndex = 8;
+            this.buttonMultiply.UseVisualStyleBackColor = true;
+            this.buttonMultiply.Click += new System.EventHandler(this.buttonMultiply_Click);
             // 
-            // button14
+            // buttonSubtract
             // 
-            this.button14.Location = new System.Drawing.Point(335, 193);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(70, 55);
-            this.button14.TabIndex = 9;
-            this.button14.Text = "button14";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonSubtract.Location = new System.Drawing.Point(335, 193);
+            this.buttonSubtract.Name = "buttonSubtract";
+            this.buttonSubtract.Size = new System.Drawing.Size(70, 55);
+            this.buttonSubtract.TabIndex = 9;
+            this.buttonSubtract.UseVisualStyleBackColor = true;
+            this.buttonSubtract.Click += new System.EventHandler(this.buttonSubtract_Click);
             // 
             // buttonAdd
             // 
@@ -202,7 +205,6 @@ namespace NYAScieCal
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(70, 55);
             this.buttonAdd.TabIndex = 10;
-            this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -225,23 +227,23 @@ namespace NYAScieCal
             this.radicalBtn.Size = new System.Drawing.Size(60, 35);
             this.radicalBtn.TabIndex = 3;
             this.radicalBtn.UseVisualStyleBackColor = true;
+            this.radicalBtn.Click += new System.EventHandler(this.radicalBtn_Click);
             // 
-            // varBtn
+            // expBtn
             // 
-            this.varBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.varBtn.Image = ((System.Drawing.Image)(resources.GetObject("varBtn.Image")));
-            this.varBtn.Location = new System.Drawing.Point(3, 214);
-            this.varBtn.Name = "varBtn";
-            this.varBtn.Size = new System.Drawing.Size(62, 35);
-            this.varBtn.TabIndex = 3;
-            this.varBtn.UseVisualStyleBackColor = true;
-            this.varBtn.Click += new System.EventHandler(this.varBtn_Click);
+            this.expBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.expBtn.Image = ((System.Drawing.Image)(resources.GetObject("expBtn.Image")));
+            this.expBtn.Location = new System.Drawing.Point(3, 214);
+            this.expBtn.Name = "expBtn";
+            this.expBtn.Size = new System.Drawing.Size(62, 35);
+            this.expBtn.TabIndex = 3;
+            this.expBtn.UseVisualStyleBackColor = true;
+            this.expBtn.Click += new System.EventHandler(this.expBtn_Click);
             // 
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.Location = new System.Drawing.Point(269, 132);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(60, 35);
@@ -253,7 +255,6 @@ namespace NYAScieCal
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Image = global::NYAScieCal.Properties.Resources._3;
             this.button3.Location = new System.Drawing.Point(269, 208);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(60, 35);
@@ -265,7 +266,6 @@ namespace NYAScieCal
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button6.Image = global::NYAScieCal.Properties.Resources._6;
             this.button6.Location = new System.Drawing.Point(269, 170);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(60, 35);
@@ -277,7 +277,6 @@ namespace NYAScieCal
             // 
             this.button0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button0.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button0.Image = global::NYAScieCal.Properties.Resources._0;
             this.button0.Location = new System.Drawing.Point(203, 248);
             this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(60, 36);
@@ -289,7 +288,6 @@ namespace NYAScieCal
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Image = global::NYAScieCal.Properties.Resources._2;
             this.button2.Location = new System.Drawing.Point(203, 208);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -302,7 +300,6 @@ namespace NYAScieCal
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Image = global::NYAScieCal.Properties.Resources._5;
             this.button5.Location = new System.Drawing.Point(203, 170);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(60, 35);
@@ -314,7 +311,6 @@ namespace NYAScieCal
             // 
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button8.Image = global::NYAScieCal.Properties.Resources._8;
             this.button8.Location = new System.Drawing.Point(203, 132);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(60, 35);
@@ -326,7 +322,6 @@ namespace NYAScieCal
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(137, 208);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 35);
@@ -338,7 +333,6 @@ namespace NYAScieCal
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button4.Image = global::NYAScieCal.Properties.Resources._4;
             this.button4.Location = new System.Drawing.Point(137, 170);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(60, 35);
@@ -350,7 +344,6 @@ namespace NYAScieCal
             // 
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button7.Image = global::NYAScieCal.Properties.Resources._7;
             this.button7.Location = new System.Drawing.Point(137, 132);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(60, 35);
@@ -374,23 +367,26 @@ namespace NYAScieCal
             this.trigoBtn.UseVisualStyleBackColor = true;
             this.trigoBtn.Click += new System.EventHandler(this.trigoBtn_Click);
             // 
-            // fractionBtn
+            // eulerBtn
             // 
-            this.fractionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fractionBtn.Location = new System.Drawing.Point(3, 254);
-            this.fractionBtn.Name = "fractionBtn";
-            this.fractionBtn.Size = new System.Drawing.Size(62, 35);
-            this.fractionBtn.TabIndex = 3;
-            this.fractionBtn.UseVisualStyleBackColor = true;
+            this.eulerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eulerBtn.Location = new System.Drawing.Point(3, 254);
+            this.eulerBtn.Name = "eulerBtn";
+            this.eulerBtn.Size = new System.Drawing.Size(62, 35);
+            this.eulerBtn.TabIndex = 3;
+            this.eulerBtn.UseVisualStyleBackColor = true;
+            this.eulerBtn.Click += new System.EventHandler(this.eulerBtn_Click);
             // 
-            // natLogBtn
+            // permBtn
             // 
-            this.natLogBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.natLogBtn.Location = new System.Drawing.Point(69, 254);
-            this.natLogBtn.Name = "natLogBtn";
-            this.natLogBtn.Size = new System.Drawing.Size(62, 35);
-            this.natLogBtn.TabIndex = 3;
-            this.natLogBtn.UseVisualStyleBackColor = true;
+            this.permBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.permBtn.Location = new System.Drawing.Point(69, 254);
+            this.permBtn.Name = "permBtn";
+            this.permBtn.Size = new System.Drawing.Size(62, 35);
+            this.permBtn.TabIndex = 3;
+            this.permBtn.Text = "n!";
+            this.permBtn.UseVisualStyleBackColor = true;
+            this.permBtn.Click += new System.EventHandler(this.permBtn_Click);
             // 
             // parOpBtn
             // 
@@ -400,6 +396,7 @@ namespace NYAScieCal
             this.parOpBtn.Size = new System.Drawing.Size(62, 35);
             this.parOpBtn.TabIndex = 3;
             this.parOpBtn.UseVisualStyleBackColor = true;
+            this.parOpBtn.Click += new System.EventHandler(this.parOpBtn_Click);
             // 
             // parEndBtn
             // 
@@ -409,6 +406,7 @@ namespace NYAScieCal
             this.parEndBtn.Size = new System.Drawing.Size(62, 35);
             this.parEndBtn.TabIndex = 3;
             this.parEndBtn.UseVisualStyleBackColor = true;
+            this.parEndBtn.Click += new System.EventHandler(this.parEndBtn_Click);
             // 
             // posNegBtn
             // 
@@ -418,6 +416,7 @@ namespace NYAScieCal
             this.posNegBtn.Name = "posNegBtn";
             this.posNegBtn.Size = new System.Drawing.Size(60, 35);
             this.posNegBtn.TabIndex = 3;
+            this.posNegBtn.Text = "+ / -";
             this.posNegBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.posNegBtn.UseVisualStyleBackColor = true;
             this.posNegBtn.Click += new System.EventHandler(this.clrBtn_Click);
@@ -471,6 +470,27 @@ namespace NYAScieCal
             this.modeComboBox.TabIndex = 12;
             this.modeComboBox.SelectedIndexChanged += new System.EventHandler(this.modeComboBox_SelectedIndexChanged);
             // 
+            // logFuncBtn
+            // 
+            this.logFuncBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logFuncBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.logFuncBtn.Location = new System.Drawing.Point(3, 336);
+            this.logFuncBtn.Name = "logFuncBtn";
+            this.logFuncBtn.Size = new System.Drawing.Size(62, 35);
+            this.logFuncBtn.TabIndex = 3;
+            this.logFuncBtn.UseVisualStyleBackColor = true;
+            this.logFuncBtn.Click += new System.EventHandler(this.logBtn_Click);
+            // 
+            // eulerFuncBtn
+            // 
+            this.eulerFuncBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eulerFuncBtn.Location = new System.Drawing.Point(69, 336);
+            this.eulerFuncBtn.Name = "eulerFuncBtn";
+            this.eulerFuncBtn.Size = new System.Drawing.Size(62, 35);
+            this.eulerFuncBtn.TabIndex = 3;
+            this.eulerFuncBtn.UseVisualStyleBackColor = true;
+            this.eulerFuncBtn.Click += new System.EventHandler(this.eulerBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,19 +499,21 @@ namespace NYAScieCal
             this.Controls.Add(this.modeComboBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.buttonSubtract);
+            this.Controls.Add(this.buttonMultiply);
+            this.Controls.Add(this.buttonDivide);
+            this.Controls.Add(this.moduloBtn);
             this.Controls.Add(this.buttonEq);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.buttonIn);
             this.Controls.Add(this.radicalBtn);
             this.Controls.Add(this.parEndBtn);
             this.Controls.Add(this.parOpBtn);
-            this.Controls.Add(this.natLogBtn);
-            this.Controls.Add(this.fractionBtn);
-            this.Controls.Add(this.varBtn);
+            this.Controls.Add(this.permBtn);
+            this.Controls.Add(this.eulerFuncBtn);
+            this.Controls.Add(this.eulerBtn);
+            this.Controls.Add(this.expBtn);
+            this.Controls.Add(this.logFuncBtn);
             this.Controls.Add(this.logBtn);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button3);
@@ -528,7 +550,7 @@ namespace NYAScieCal
         private System.Windows.Forms.Label closeBtn;
         private System.Windows.Forms.Button logBtn;
         private System.Windows.Forms.Button buttonIn;
-        private System.Windows.Forms.Button varBtn;
+        private System.Windows.Forms.Button expBtn;
         private System.Windows.Forms.Button radicalBtn;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -543,13 +565,13 @@ namespace NYAScieCal
         private System.Windows.Forms.Button buttonDot;
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.Button buttonEq;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button moduloBtn;
+        private System.Windows.Forms.Button buttonDivide;
+        private System.Windows.Forms.Button buttonMultiply;
+        private System.Windows.Forms.Button buttonSubtract;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button fractionBtn;
-        private System.Windows.Forms.Button natLogBtn;
+        private System.Windows.Forms.Button eulerBtn;
+        private System.Windows.Forms.Button permBtn;
         private System.Windows.Forms.Button parOpBtn;
         private System.Windows.Forms.Button parEndBtn;
         private System.Windows.Forms.Button posNegBtn;
@@ -557,6 +579,8 @@ namespace NYAScieCal
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button clrBtn;
         private System.Windows.Forms.ComboBox modeComboBox;
+        private System.Windows.Forms.Button logFuncBtn;
+        private System.Windows.Forms.Button eulerFuncBtn;
     }
 }
 
