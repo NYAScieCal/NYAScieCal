@@ -30,7 +30,7 @@ namespace NYAScieCal
 
             /*Dito ang testingan*/
 
-            Console.WriteLine(Program.controller.root(27,3));
+            //Console.WriteLine(Program.controller.root(27,3));
 
             /*End*/
 

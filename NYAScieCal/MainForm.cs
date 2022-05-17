@@ -600,11 +600,16 @@ namespace NYAScieCal
 
         private void button10_Click(object sender, EventArgs e)
         {
+            /*
             //double[,] s = new double[,] { { 1, 2 },{ 3 , 4} };
             double[,] s = new double[,] { { 1, 2 },{ 4 , 1 } ,{ 4 , 0} };
             //double[,] s = new double[,] { { 1, 2 }};
             //double[,] s = new double[,] { { 1, 1 },{ 3,0} };
-            Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));
+            Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));*/
+
+            Console.WriteLine(Program.util.normalizedExpression(this.textBox,3));
+
+
 
         }
 

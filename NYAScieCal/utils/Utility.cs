@@ -369,5 +369,177 @@ namespace NYAScieCal.utils
 
         }
 
+
+        public string normalizedExpression(RichTextBox textBox,double domain)
+        {
+
+           
+            string s = "";
+
+            for (int i=0;i<textBox.Text.Length;i++)
+            {
+
+                textBox.SelectionStart = i;
+                textBox.SelectionLength = 1;
+
+                Console.WriteLine(textBox.SelectionCharOffset + " " + textBox.Text[i]);
+
+
+                if (textBox.SelectionCharOffset == 15)
+                {
+
+                    if (s[s.Length - 1].ToString().Equals("}"))
+                    {
+
+                        s=s.Remove(s.Length - 1 , 1).Insert(s.Length - 1 , textBox.Text[i]+"}");
+       
+                       
+
+                    }
+                    else
+                    {
+
+                        s += "pow{" + textBox.Text[i].ToString() + "}";
+
+                    }
+
+                  
+                 
+              
+                }
+              
+                else if (textBox.Text[i].ToString().Equals("x"))
+                {
+
+                    try
+                    {
+
+                        if (isNumber(textBox.Text[i - 1].ToString()) || textBox.Text[i - 1].ToString().Equals("x"))
+                        {
+
+                            s += "*" + domain.ToString();
+
+                        }
+                        else
+                        {
+
+                            s += domain.ToString();
+
+                        }
+
+                        
+
+                    }
+                    catch (Exception e)
+                    {
+
+                        s += domain.ToString();
+                        Console.WriteLine(e.Message);
+
+                    }
+
+                    
+
+
+                }
+
+                else if (textBox.Text[i].ToString().Equals("("))
+                {
+                    try
+                    {
+
+                        if (textBox.Text[i - 1].ToString().Equals("+") || textBox.Text[i - 1].ToString().Equals("-"))
+                        {
+
+                            s = s.Remove(s.Length - 1, 1).Insert(s.Length - 1, textBox.Text[i - 1] + "(");
+
+                        }
+                        else
+                        {
+
+                            s += "*(";
+
+                        }
+
+                    }
+                    catch (Exception e)
+                    {
+
+                        Console.WriteLine(e.Message);
+
+                    }
+                   
+
+                }
+
+                else if (textBox.Text[i].ToString().Equals(")"))
+                {
+
+                    try
+                    {
+
+                        if (textBox.Text[i + 1].ToString().Equals("+") || textBox.Text[i + 1].ToString().Equals("-"))
+                        {
+                            s +=textBox.Text[i];
+                        }
+                        else
+                        {
+
+                            s += ")*";
+
+
+                        }
+
+                    }
+                    catch (Exception e)
+                    {
+
+                        s += ")";
+                        Console.WriteLine(e.Message);
+
+                    }
+                   
+
+                }
+
+
+                else
+                {
+
+                    s += textBox.Text[i].ToString();
+
+                }
+            
+
+            }
+
+            return s;
+
+        }
+
+        public Boolean isNumber(string number)
+        {
+
+            try
+            {
+
+
+                Convert.ToDouble(number);
+                return true;
+                
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+                return false;
+
+
+            }
+
+        }
+
+
     }
 }
