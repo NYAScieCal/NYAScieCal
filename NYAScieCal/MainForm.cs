@@ -600,14 +600,8 @@ namespace NYAScieCal
 
         private void button10_Click(object sender, EventArgs e)
         {
-            /*
-            //double[,] s = new double[,] { { 1, 2 },{ 3 , 4} };
-            double[,] s = new double[,] { { 1, 2 },{ 4 , 1 } ,{ 4 , 0} };
-            //double[,] s = new double[,] { { 1, 2 }};
-            //double[,] s = new double[,] { { 1, 1 },{ 3,0} };
-            Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));*/
+           
 
-            Console.WriteLine(Program.util.normalizedExpression(this.textBox,3));
 
 
 
@@ -844,6 +838,31 @@ namespace NYAScieCal
 
             Program.buttonState.setCurrentState(ButtonStateConsts.FACTORIAL_BUTTON_SET);
             this.textBox.Text = "fact (" + this.textBox.Text + ")";
+
+
+        }
+
+        private void graphButton_Click(object sender, EventArgs e)
+        {
+            string a = Program.util.normalizedExpression(this.textBox);
+            Console.WriteLine(a);
+            //String[] splittedExp = a.Split('*', '/', '+', '-');
+            //double value = Program.util.calculate(a);
+            Program.util.graphFunction(this.panel1, a);
+
+
+            //double[,] s = new double[,] { { 1, 2 },{ 3 , 4} };
+            //double[,] s = new double[,] { { 1, 2 },{ 4 , 1 } ,{ 4 , 0} };
+            //double[,] s = new double[,] { { 1, 2 }};
+            //double[,] s = new double[,] { { 1, 1 },{ 3,0} };
+            //double[,] s = new double[,] { { 1, 3 }, { 2, 0 } };
+
+            //double[,] s = new double[,] { { 6, 2 }, { 4, 3 } , { 5, 0 } };
+
+            //Program.util.graphFunction(this.panel1,new PolynomialModel(s,2));
+
+            //double[,] s = new double[,] { { 1, 2 }, { 6, 0 } };
+            //Program.util.graphFunction(this.panel1, new PolynomialModel(s, 2));
 
 
         }

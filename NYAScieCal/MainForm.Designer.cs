@@ -70,6 +70,7 @@ namespace NYAScieCal
             this.modeComboBox = new System.Windows.Forms.ComboBox();
             this.logFuncBtn = new System.Windows.Forms.Button();
             this.eulerFuncBtn = new System.Windows.Forms.Button();
+            this.graphButton = new System.Windows.Forms.Button();
             this.titleBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -491,6 +492,18 @@ namespace NYAScieCal
             this.eulerFuncBtn.UseVisualStyleBackColor = true;
             this.eulerFuncBtn.Click += new System.EventHandler(this.eulerBtn_Click);
             // 
+            // graphButton
+            // 
+            this.graphButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.graphButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.graphButton.Location = new System.Drawing.Point(38, 389);
+            this.graphButton.Name = "graphButton";
+            this.graphButton.Size = new System.Drawing.Size(62, 35);
+            this.graphButton.TabIndex = 3;
+            this.graphButton.Text = "Graph";
+            this.graphButton.UseVisualStyleBackColor = true;
+            this.graphButton.Click += new System.EventHandler(this.graphButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,6 +526,7 @@ namespace NYAScieCal
             this.Controls.Add(this.eulerFuncBtn);
             this.Controls.Add(this.eulerBtn);
             this.Controls.Add(this.expBtn);
+            this.Controls.Add(this.graphButton);
             this.Controls.Add(this.logFuncBtn);
             this.Controls.Add(this.logBtn);
             this.Controls.Add(this.button9);
@@ -581,6 +595,7 @@ namespace NYAScieCal
         private System.Windows.Forms.ComboBox modeComboBox;
         private System.Windows.Forms.Button logFuncBtn;
         private System.Windows.Forms.Button eulerFuncBtn;
+        private System.Windows.Forms.Button graphButton;
     }
 }
 

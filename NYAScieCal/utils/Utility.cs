@@ -280,6 +280,7 @@ namespace NYAScieCal.utils
 
         }
 
+        /*
         public void graphFunction(Panel panel,PolynomialModel model)
         {
 
@@ -321,8 +322,140 @@ namespace NYAScieCal.utils
 
             graphicsObj.DrawCurve(myPen, points);
 
+        }*/
+        
+        public void graphFunction(Panel panel,String expression)
+        {
+
+            System.Drawing.Graphics graphicsObj = panel.CreateGraphics();
+            graphicsObj.SmoothingMode = SmoothingMode.AntiAlias;
+            Pen myPen = new Pen(System.Drawing.Color.Black, 1);
+            Point[] points = new Point[panel.Width];
+
+            
+            for (int i = 0; i < panel.Width; i++)
+            {
+
+                String s = expression.Replace("x", getTranslatedXCoordinate(panel.Width, i, 15).ToString());
+                double value = calculate(s);
+                Console.WriteLine(value);
+                //points[i] = new Point(i, getActualRangeValue(panel.Height,value, 15));
+       
+
+            }
+
+            //graphicsObj.DrawCurve(myPen, points);
+
+
         }
 
+        public double calculate(String expression)
+        {
+            string temp = expression;
+            while (!isNumber(temp))
+            {
+
+                if (temp.Contains("("))
+                {
+                    int index1 = temp.LastIndexOf("(");
+                    string s = temp.Substring(index1);
+                    int index2 = s.IndexOf(")");
+                    string inner = s.Substring(0, index2 + 1);
+                    temp = temp.Remove(index1,inner.Length).Insert(index1,calculate(inner.Substring(1,index2-1)).ToString());
+                    //Console.WriteLine(temp);
+
+                }
+
+                if (temp.Contains("+-"))
+                {
+
+                    temp = temp.Replace("+-","-");
+
+                }
+
+                if (temp.Contains("-+"))
+                {
+                    temp = temp.Replace("-+", "-");
+                }
+
+                if (temp.Contains("--"))
+                {
+
+                    temp = temp.Replace("--", "+");
+
+                }
+                
+                if (temp.Contains("*") || temp.Contains("/") || temp.Contains("+"))
+                {
+
+                    char[] tempToChar = temp.ToCharArray();
+                    List<Char> charOp = new List<Char>();
+
+                    foreach(char item in tempToChar)
+                    {
+
+                        if (item.Equals('*') || item.Equals('/') || item.Equals('+'))
+                        {
+
+                            charOp.Add(item);
+
+                        }
+                       
+
+                    }
+
+                    String[] splittedExp = temp.Split('*', '/', '+');
+
+                    temp = "";
+                    
+                    for (int i = 0; i < splittedExp.Length; i++)
+                    {
+
+                        if (splittedExp[i].Contains("pow"))
+                        {
+
+
+                            string[] s = splittedExp[i].Split(';');
+                            int index = s[1].IndexOf("{") + 1;
+                            int index2 = s[1].IndexOf("}");
+
+                            string exponent = s[1].Substring(index, index2 - index);
+                            splittedExp[i] = splittedExp[i].Remove(0,s[0].Length).Insert(0,Math.Pow(Convert.ToDouble(s[0]),Convert.ToDouble(exponent)).ToString());
+                            splittedExp[i] = splittedExp[i].Remove(splittedExp[i].IndexOf(';'));
+                           
+                        }
+
+                        try
+                        {
+
+                            temp += splittedExp[i] + charOp.ElementAt(i);
+
+                        }
+                        catch (Exception e)
+                        {
+
+                            temp += splittedExp[i];
+                            Console.WriteLine(e);
+
+                        }
+                        
+                        //Console.WriteLine(splittedExp[i]+" ulol ");
+                       
+                    }
+
+                    Console.WriteLine(temp);
+
+                }
+                
+
+            }
+
+          
+            return Convert.ToDouble(temp) ;
+
+        }
+
+       
         public double[] getTranslatedCoordinates(int xBoundery,int yBoundery,Point point,int range)
         {
 
@@ -370,7 +503,7 @@ namespace NYAScieCal.utils
         }
 
 
-        public string normalizedExpression(RichTextBox textBox,double domain)
+        public string normalizedExpression(RichTextBox textBox)
         {
 
            
@@ -399,7 +532,7 @@ namespace NYAScieCal.utils
                     else
                     {
 
-                        s += "pow{" + textBox.Text[i].ToString() + "}";
+                        s += ";pow{" + textBox.Text[i].ToString() + "}";
 
                     }
 
@@ -417,13 +550,13 @@ namespace NYAScieCal.utils
                         if (isNumber(textBox.Text[i - 1].ToString()) || textBox.Text[i - 1].ToString().Equals("x"))
                         {
 
-                            s += "*" + domain.ToString();
+                            s += "*" + "x";
 
                         }
                         else
                         {
 
-                            s += domain.ToString();
+                            s += "x";
 
                         }
 
@@ -433,7 +566,7 @@ namespace NYAScieCal.utils
                     catch (Exception e)
                     {
 
-                        s += domain.ToString();
+                        s += "x";
                         Console.WriteLine(e.Message);
 
                     }
@@ -478,10 +611,11 @@ namespace NYAScieCal.utils
                     try
                     {
 
-                        if (textBox.Text[i + 1].ToString().Equals("+") || textBox.Text[i + 1].ToString().Equals("-"))
+                        if (textBox.Text[i + 1].ToString().Equals("+") || textBox.Text[i + 1].ToString().Equals("-") || textBox.Text[i + 1].ToString().Equals(")"))
                         {
                             s +=textBox.Text[i];
                         }
+
                         else
                         {
 

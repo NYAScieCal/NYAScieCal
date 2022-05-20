@@ -28,6 +28,8 @@ namespace NYAScieCal
             calcMode.setCalcMode(CalcModeConsts.STANDARD);
             expBtnToggle.setExpBtnStatus(ButtonStateConsts.EXPONENT_BUTTON_OFF);
 
+     
+
             /*Dito ang testingan*/
 
             //Console.WriteLine(Program.controller.root(27,3));
