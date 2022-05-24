@@ -845,7 +845,7 @@ namespace NYAScieCal
         private void graphButton_Click(object sender, EventArgs e)
         {
             string a = Program.util.normalizedExpression(this.textBox);
-            Console.WriteLine(a);
+            //Console.WriteLine(a);
             //String[] splittedExp = a.Split('*', '/', '+', '-');
             //double value = Program.util.calculate(a);
             Program.util.graphFunction(this.panel1, a);

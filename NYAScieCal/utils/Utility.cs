@@ -338,7 +338,7 @@ namespace NYAScieCal.utils
 
                 String s = expression.Replace("x", getTranslatedXCoordinate(panel.Width, i, 15).ToString());
                 double value = calculate(s);
-                Console.WriteLine(value);
+                //Console.WriteLine(value);
                 //points[i] = new Point(i, getActualRangeValue(panel.Height,value, 15));
        
 
@@ -352,6 +352,10 @@ namespace NYAScieCal.utils
         public double calculate(String expression)
         {
             string temp = expression;
+
+            //Console.WriteLine(temp);
+
+
             while (!isNumber(temp))
             {
 
@@ -363,6 +367,13 @@ namespace NYAScieCal.utils
                     string inner = s.Substring(0, index2 + 1);
                     temp = temp.Remove(index1,inner.Length).Insert(index1,calculate(inner.Substring(1,index2-1)).ToString());
                     //Console.WriteLine(temp);
+
+                }
+
+                if (temp[0].Equals('-'))
+                {
+
+                    temp = temp.Remove(0,1).Insert(0,"~");
 
                 }
 
@@ -384,8 +395,18 @@ namespace NYAScieCal.utils
                     temp = temp.Replace("--", "+");
 
                 }
+
+                if (temp.Contains("*-"))
+                {
+
+                    temp = temp.Replace("*-", "*~");
+
+
+                }
+
                 
-                if (temp.Contains("*") || temp.Contains("/") || temp.Contains("+"))
+
+                if (temp.Contains("*") || temp.Contains("/") || temp.Contains("+") || temp.Contains("-"))
                 {
 
                     char[] tempToChar = temp.ToCharArray();
@@ -394,7 +415,7 @@ namespace NYAScieCal.utils
                     foreach(char item in tempToChar)
                     {
 
-                        if (item.Equals('*') || item.Equals('/') || item.Equals('+'))
+                        if (item.Equals('*') || item.Equals('/') || item.Equals('+') || item.Equals('-'))
                         {
 
                             charOp.Add(item);
@@ -404,25 +425,37 @@ namespace NYAScieCal.utils
 
                     }
 
-                    String[] splittedExp = temp.Split('*', '/', '+');
+                    Console.WriteLine(temp);
+
+                    String[] splittedExp = temp.Split('*', '/', '+', '-');
 
                     temp = "";
                     
                     for (int i = 0; i < splittedExp.Length; i++)
                     {
 
+                        if (splittedExp[i].Contains("~"))
+                        {
+
+                            splittedExp[i]=splittedExp[i].Replace("~","-");
+
+                        }
+
                         if (splittedExp[i].Contains("pow"))
                         {
 
+                           
 
                             string[] s = splittedExp[i].Split(';');
                             int index = s[1].IndexOf("{") + 1;
                             int index2 = s[1].IndexOf("}");
 
+                            
                             string exponent = s[1].Substring(index, index2 - index);
                             splittedExp[i] = splittedExp[i].Remove(0,s[0].Length).Insert(0,Math.Pow(Convert.ToDouble(s[0]),Convert.ToDouble(exponent)).ToString());
                             splittedExp[i] = splittedExp[i].Remove(splittedExp[i].IndexOf(';'));
-                           
+                            
+
                         }
 
                         try
@@ -438,19 +471,20 @@ namespace NYAScieCal.utils
                             Console.WriteLine(e);
 
                         }
-                        
-                        //Console.WriteLine(splittedExp[i]+" ulol ");
-                       
+
+                        Console.WriteLine(splittedExp[i] + " ulol ");
+
                     }
 
-                    Console.WriteLine(temp);
 
                 }
-                
+
+
+                Console.WriteLine(temp);
 
             }
 
-          
+           
             return Convert.ToDouble(temp) ;
 
         }
